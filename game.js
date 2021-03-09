@@ -51,17 +51,12 @@ window.onload = function () {
             location = parent.location.copy()
         }
 
-        let placedInMiddle = false
         let placedInMiddleIndex = -1
         if (parts.length > 3) {
             let index = Math.floor(Math.random() * (parts.length - 2) + 2)
             placedInMiddleIndex = index
             parent = parts[index - 1]
             location = parent.location.copy()
-
-            if (index + 1 in parts) {
-                placedInMiddle = true
-            }
         }
 
         //randomize starting location
@@ -71,7 +66,7 @@ window.onload = function () {
             parent,
             location
         }
-        if (placedInMiddle) {
+        if (placedInMiddleIndex != -1) {
             parts.splice(placedInMiddleIndex, 0, newPart)
 
             parts[placedInMiddleIndex + 1].parent = parts[placedInMiddleIndex]
@@ -139,8 +134,8 @@ window.onload = function () {
     }, 5)
 
     //debug
-    // ctx.font = '10px serif';
-    // ctx.strokeStyle = "red"
+    ctx.font = '10px serif';
+    ctx.strokeStyle = "red"
     setInterval(() => {
         if (!gameRunning) return
 
@@ -160,15 +155,15 @@ window.onload = function () {
         })
 
         //debug...
-        // ctx.fillStyle = "blue"
-        // parts.forEach((part, index) => {
-        //     ctx.beginPath()
-        //     ctx.moveTo(part.location.x, part.location.y)
-        //     ctx.lineTo(part.parent.location.x, part.parent.location.y)
-        //     ctx.stroke()
+        ctx.fillStyle = "blue"
+        parts.forEach((part, index) => {
+            ctx.beginPath()
+            ctx.moveTo(part.location.x, part.location.y)
+            ctx.lineTo(part.parent.location.x, part.parent.location.y)
+            ctx.stroke()
 
-        //     ctx.fillText(index, part.location.x, part.location.y);
-        // })
+            ctx.fillText(index, part.location.x, part.location.y);
+        })
 
         foods.forEach(food => {
             ctx.fillStyle = `rgba(0,255,0,${1 - food.expiration})`
