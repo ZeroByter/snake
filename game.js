@@ -134,8 +134,8 @@ window.onload = function () {
     }, 5)
 
     //debug
-    ctx.font = '10px serif';
-    ctx.strokeStyle = "red"
+    // ctx.font = '10px serif';
+    // ctx.strokeStyle = "red"
     setInterval(() => {
         if (!gameRunning) return
 
@@ -155,15 +155,15 @@ window.onload = function () {
         })
 
         //debug...
-        ctx.fillStyle = "blue"
-        parts.forEach((part, index) => {
-            ctx.beginPath()
-            ctx.moveTo(part.location.x, part.location.y)
-            ctx.lineTo(part.parent.location.x, part.parent.location.y)
-            ctx.stroke()
+        // ctx.fillStyle = "blue"
+        // parts.forEach((part, index) => {
+        //     ctx.beginPath()
+        //     ctx.moveTo(part.location.x, part.location.y)
+        //     ctx.lineTo(part.parent.location.x, part.parent.location.y)
+        //     ctx.stroke()
 
-            ctx.fillText(index, part.location.x, part.location.y);
-        })
+        //     ctx.fillText(index, part.location.x, part.location.y);
+        // })
 
         foods.forEach(food => {
             ctx.fillStyle = `rgba(0,255,0,${1 - food.expiration})`
