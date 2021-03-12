@@ -25,3 +25,5 @@ vector2.prototype.distance = function (otherVector) {
 vector2.prototype.copy = function () {
     return new vector2(this.x, this.y)
 }
+
+export default vector2
