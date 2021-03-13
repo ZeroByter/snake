@@ -1,0 +1,19 @@
+.setup-game-page {
+    .buttons-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        div{
+            margin-bottom: 10px;
+        }
+
+        .bottom-buttons{
+            button{
+                margin: 0px 4px;
+            }
+        }
+    }
+}

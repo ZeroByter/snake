@@ -1,0 +1,20 @@
+button{
+    cursor: pointer;
+}
+
+.button{
+    background: rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 10px 5px;
+    outline: none;
+    color: white;
+}
+.button:disabled{
+    opacity: 0.5;
+}
+.button:hover{
+    background: rgba(255,255,255,0.35);
+}
+.button:active{
+    background: rgba(255,255,255,0.4);
+}

@@ -33,6 +33,12 @@ export default class GameUI extends React.Component {
     }
 
     render() {
+        let deathScreenMainMenuButton = null
+        if(!this.props.isViewingGame){
+            //if canvas width is not present in gameData, it means we are not spectating a game and can view the 'go back to main menu' button
+            deathScreenMainMenuButton = <div><a href="#/"><button>Main Menu</button></a></div>
+        }
+
         return (
             <div className="game-ui">
                 <div className="score">{this.props.gameData.score}</div>
@@ -45,8 +51,8 @@ export default class GameUI extends React.Component {
                 <div className="death-screen" style={{ display: this.props.gameData.isDead ? "" : "none" }}>
                     <div className="score">Score: {this.props.gameData.score}</div>
                     <div className="moved-distance">You moved {Math.round(this.props.gameData.metersMoved / 1000)} meters</div>
-                    <div><button>Retry</button></div>
-                    <div><button>Main Menu</button></div>
+                    <div><button onClick={this.props.retryClick}>try again!</button></div>
+                    {deathScreenMainMenuButton}
                 </div>
             </div>
         )
